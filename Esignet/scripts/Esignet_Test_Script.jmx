@@ -940,7 +940,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         </LoopController>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load Add Identity Request Details From File" enabled="true">
-            <stringProp name="filename">./addIdentityRequestDetails.csv</stringProp>
+            <stringProp name="filename">./fullNames.txt</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
             <stringProp name="variableNames">fullName</stringProp>
             <boolProp name="ignoreFirstLine">true</boolProp>
@@ -1214,11 +1214,11 @@ vars.put(&quot;identifier&quot;, tempValue);
 </stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Store Identifier and Password To File" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Store Identifier and Password and Full Names To File" enabled="true">
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="script">${__StringToFile(credential_password_auth.txt,${identifier}@phone\,${genPassword}\n,true,)}</stringProp>
+              <stringProp name="script">${__StringToFile(credential_password_auth.txt,${identifier}@phone\,${genPassword}\,${fullName}\n,true,)}</stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
@@ -7187,6 +7187,52 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="c_encodeddata" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">c_encodeddata</stringProp>
+            <stringProp name="RegexExtractor.regex">\.(.*?)\.</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+          </RegexExtractor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Name presence assertion" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.commons.codec.binary.Base64
+import org.apache.commons.lang3.StringEscapeUtils
+
+
+def base64UrlEncodedJson=vars.get(&quot;c_encodeddata&quot;);
+
+def data=vars.get(&quot;fullnames&quot;);
+
+def decodedBytes = Base64.decodeBase64(base64UrlEncodedJson)
+def decodedJsonString = new String(decodedBytes, &quot;UTF-8&quot;)
+
+
+def jsonSlurper = new groovy.json.JsonSlurper()
+def jsonObject = jsonSlurper.parseText(decodedJsonString)
+
+
+def unescapedJsonString = StringEscapeUtils.unescapeJava(groovy.json.JsonOutput.toJson(jsonObject))
+log.info(unescapedJsonString);
+log.info(data);
+// applying assertion
+if(unescapedJsonString.contains(data))
+{
+	SampleResult.setSuccessful(true);
+}
+else
+{
+	SampleResult.setSuccessful(false);
+}
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
         </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="OIDC - Configuration (Execution)" enabled="true">
@@ -8000,6 +8046,52 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="c_encodeddata" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">c_encodeddata</stringProp>
+              <stringProp name="RegexExtractor.regex">\.(.*?)\.</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Name presence assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">import org.apache.commons.codec.binary.Base64
+import org.apache.commons.lang3.StringEscapeUtils
+
+
+def base64UrlEncodedJson=vars.get(&quot;c_encodeddata&quot;);
+
+def data=vars.get(&quot;fullnames&quot;);
+
+def decodedBytes = Base64.decodeBase64(base64UrlEncodedJson)
+def decodedJsonString = new String(decodedBytes, &quot;UTF-8&quot;)
+
+
+def jsonSlurper = new groovy.json.JsonSlurper()
+def jsonObject = jsonSlurper.parseText(decodedJsonString)
+
+
+def unescapedJsonString = StringEscapeUtils.unescapeJava(groovy.json.JsonOutput.toJson(jsonObject))
+log.info(unescapedJsonString);
+log.info(data);
+// applying assertion
+if(unescapedJsonString.contains(data))
+{
+	SampleResult.setSuccessful(true);
+}
+else
+{
+	SampleResult.setSuccessful(false);
+}
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Assertion>
             <hashTree/>
           </hashTree>
         </hashTree>
