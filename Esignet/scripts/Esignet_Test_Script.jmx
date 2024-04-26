@@ -1617,7 +1617,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           <boolProp name="recycle">false</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">true</boolProp>
-          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth</stringProp>
+          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth,fullName</stringProp>
         </CSVDataSet>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OAuth Details V2 Endpoint API" enabled="true">
@@ -1918,16 +1918,17 @@ if (prev.getResponseDataAsString().contains(expectedResponseMessage)) {
     
     String identifier = vars.get(&quot;individualIdPwdAuth&quot;);
     String password = vars.get(&quot;passwordPwdAuth&quot;);
+    String password = vars.get(&quot;fullName&quot;);
 
    
-    String csvFilePath = &quot;C:/Users/61091460/Documents/apache-jmeter-5.3/apache-jmeter-5.3/bin/credentials.txt&quot;;
+    String csvFilePath = &quot;./bin/credentials.txt&quot;;
 
     
     def fileWriter = new FileWriter(csvFilePath, true);
     def printWriter = new PrintWriter(fileWriter);
 
     // Customize the format as needed
-    printWriter.println(&quot;${identifier},${password}&quot;);
+    printWriter.println(&quot;${identifier},${password},${fullName}&quot;);
 
     // Close the writers
     printWriter.close();
@@ -5892,7 +5893,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           <boolProp name="recycle">true</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">false</boolProp>
-          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth</stringProp>
+          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth,fullName</stringProp>
         </CSVDataSet>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load Individual Id From File" enabled="true">
@@ -6453,6 +6454,24 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="script">${__StringToFile(access_token_userinfo_password_auth.txt,${accessToken}\n,true,)}</stringProp>
             </BeanShellPostProcessor>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Store Access Token with Full Name To File " enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import java.io.*;
+def accesstoken=vars.get(&quot;accessToken&quot;);
+def name=vars.get(&quot;fullName&quot;);
+
+File f=new File(&quot;D:/apache-jmeter-5.3/bin/access_token_userinfo_password_auth_demo.csv&quot;);
+FileWriter fw=new FileWriter(f,true);
+BufferedWriter bw=new BufferedWriter(fw);
+bw.write(&quot;${accesstoken},${name}&quot;);
+bw.write(System.getProperty(&quot;line.separator&quot;));
+bw.close();
+fw.close();</stringProp>
+            </JSR223PostProcessor>
             <hashTree/>
           </hashTree>
         </hashTree>
@@ -7416,7 +7435,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           <boolProp name="recycle">true</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">false</boolProp>
-          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth</stringProp>
+          <stringProp name="variableNames">individualIdPwdAuth,passwordPwdAuth,fullName</stringProp>
         </CSVDataSet>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load Individual Id From File" enabled="true">
@@ -8037,19 +8056,9 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - Response Code" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.custom_message"></stringProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="c_encodeddata" enabled="true">
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="encodedData" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-              <stringProp name="RegexExtractor.refname">c_encodeddata</stringProp>
+              <stringProp name="RegexExtractor.refname">encodedData</stringProp>
               <stringProp name="RegexExtractor.regex">\.(.*?)\.</stringProp>
               <stringProp name="RegexExtractor.template">$1$</stringProp>
               <stringProp name="RegexExtractor.default"></stringProp>
@@ -8057,7 +8066,7 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
               <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
             </RegexExtractor>
             <hashTree/>
-            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Name presence assertion" enabled="true">
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Name Presence Assertion" enabled="true">
               <stringProp name="cacheKey">true</stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
@@ -8065,9 +8074,9 @@ vars.put(&quot;clientAssertionJWT&quot;, JWT);
 import org.apache.commons.lang3.StringEscapeUtils
 
 
-def base64UrlEncodedJson=vars.get(&quot;c_encodeddata&quot;);
+def base64UrlEncodedJson=vars.get(&quot;encodedData&quot;);
 
-def data=vars.get(&quot;fullnames&quot;);
+def data=vars.get(&quot;fullName&quot;);
 
 def decodedBytes = Base64.decodeBase64(base64UrlEncodedJson)
 def decodedJsonString = new String(decodedBytes, &quot;UTF-8&quot;)
@@ -8093,6 +8102,16 @@ else
               <stringProp name="scriptLanguage">groovy</stringProp>
             </JSR223Assertion>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - Response Code" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Auth Factor Type is OTP" enabled="true">
@@ -8101,6 +8120,55 @@ else
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
         <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Csrf Token Endpoint API" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${serverIP}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPortNo}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/esignet/csrf/token</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2017977937">&quot;token&quot;:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - Response Code" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OAuth Details V2 Endpoint API" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
