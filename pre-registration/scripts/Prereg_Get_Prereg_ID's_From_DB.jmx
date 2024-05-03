@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="dbHost" elementType="Argument">
             <stringProp name="Argument.name">dbHost</stringProp>
-            <stringProp name="Argument.value">cellbox2.mosip.net</stringProp>
+            <stringProp name="Argument.value">10.3.148.69</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="dbPort" elementType="Argument">
@@ -36,7 +36,7 @@
           </elementProp>
           <elementProp name="dbPassword" elementType="Argument">
             <stringProp name="Argument.name">dbPassword</stringProp>
-            <stringProp name="Argument.value">mosip123</stringProp>
+            <stringProp name="Argument.value">797mKZO1Bo</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
