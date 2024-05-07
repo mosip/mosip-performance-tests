@@ -403,10 +403,6 @@
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
-            <stringProp name="ConstantTimer.delay">2000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
         </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get Packet status (Preparation)" enabled="true">
@@ -431,7 +427,7 @@
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load Packet Details From File" enabled="true">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
-            <stringProp name="filename">C:/Users/61091460/Documents/apache-jmeter-5.3/apache-jmeter-5.3/bin/storepacketPath2.txt</stringProp>
+            <stringProp name="filename">./store_packet_path.txt</stringProp>
             <boolProp name="ignoreFirstLine">true</boolProp>
             <boolProp name="quotedData">false</boolProp>
             <boolProp name="recycle">true</boolProp>
@@ -490,7 +486,7 @@ ${__javaScript(&apos;${packetStatusReqBodyRid}&apos;.substring(0\,${strLen}-1),m
             <boolProp name="resetInterpreter">false</boolProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
-            <stringProp name="script">${__StringToFile(multiple_packet_status_request_body_30CU.csv,${multipleLinesPacketStatusReqBody}\n,true,)}</stringProp>
+            <stringProp name="script">${__StringToFile(multiple_packet_status_request_body.csv,${multipleLinesPacketStatusReqBody}\n,true,)}</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
@@ -512,7 +508,7 @@ ${__javaScript(&apos;${packetStatusReqBodyRid}&apos;.substring(0\,${strLen}-1),m
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load Multiple Packet Status Request Body From File" enabled="true">
           <stringProp name="delimiter">&amp;</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">./multiple_packet_status_request_body_30CU.csv</stringProp>
+          <stringProp name="filename">./multiple_packet_status_request_body.csv</stringProp>
           <boolProp name="ignoreFirstLine">true</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
