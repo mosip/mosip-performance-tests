@@ -1474,12 +1474,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S01 UIN Services Login Weighted Switch Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="1704159996">
+            <collectionProp name="269409417">
               <stringProp name="-1908102739">S01 T01 Login​ Redirect URI Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1579625477">
+            <collectionProp name="536485899">
               <stringProp name="-674306641">S01 T02 UIN Login Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -2170,7 +2170,7 @@ function encodeBase64Url(value) {
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>1200.0</value>
@@ -2561,7 +2561,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>180.0</value>
@@ -3029,7 +3029,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>300.0</value>
@@ -3047,7 +3047,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${duration}</stringProp>
+        <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -3235,7 +3235,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>300.0</value>
@@ -3402,7 +3402,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>300.0</value>
@@ -3755,7 +3755,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>300.0</value>
@@ -4234,7 +4234,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>300.0</value>
@@ -5466,7 +5466,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>900.0</value>
@@ -6343,7 +6343,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>600.0</value>
@@ -6615,7 +6615,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>900.0</value>
@@ -6832,7 +6832,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>180.0</value>
@@ -6870,22 +6870,22 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S12 Menu Bar Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-70943330">
+            <collectionProp name="954460230">
               <stringProp name="1198751914">Unread Notification Count Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1937771125">
+            <collectionProp name="-413748214">
               <stringProp name="1760456046">Bell Update Time Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1175605838">
+            <collectionProp name="1364212865">
               <stringProp name="-1915902043">Bell Notification Click Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-148485433">
+            <collectionProp name="1046756916">
               <stringProp name="-548636136">Notifications Language Code Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -7097,7 +7097,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>240.0</value>
@@ -7149,12 +7149,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S13 Audit Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-782736823">
+            <collectionProp name="-770966436">
               <stringProp name="43885120">Auth Proxy Audit Log Endpoint </stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="1059989025">
+            <collectionProp name="2123676340">
               <stringProp name="1383208600">Proxy Audit Log Endpoint </stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -7286,7 +7286,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>120.0</value>
@@ -7439,7 +7439,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-          <intProp name="calcMode">0</intProp>
+          <intProp name="calcMode">2</intProp>
           <doubleProp>
             <name>throughput</name>
             <value>180.0</value>
