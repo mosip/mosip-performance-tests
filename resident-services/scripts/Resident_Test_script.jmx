@@ -19,6 +19,11 @@
             <stringProp name="Argument.value">10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="rampUp" elementType="Argument">
+            <stringProp name="Argument.name">rampUp</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="protocol" elementType="Argument">
             <stringProp name="Argument.name">protocol</stringProp>
             <stringProp name="Argument.value">https</stringProp>
@@ -51,7 +56,7 @@
           </elementProp>
           <elementProp name="residentOidcClientId" elementType="Argument">
             <stringProp name="Argument.name">residentOidcClientId</stringProp>
-            <stringProp name="Argument.value">VT92FbIgdeHiuy7N8ETReyRWV92J8cXszCz9VcDvKCo</stringProp>
+            <stringProp name="Argument.value">Hj65cNync_lOBQhuhwDhDd7yjQ2eAIcKAt9CFG6BUeI</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="regProcClientId" elementType="Argument">
@@ -61,7 +66,7 @@
           </elementProp>
           <elementProp name="regProcSecretKey" elementType="Argument">
             <stringProp name="Argument.name">regProcSecretKey</stringProp>
-            <stringProp name="Argument.value">IMEXRmebs2ZnRtHs</stringProp>
+            <stringProp name="Argument.value">abc123</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="regProcAppId" elementType="Argument">
@@ -76,7 +81,7 @@
           </elementProp>
           <elementProp name="idRepoSecretKey" elementType="Argument">
             <stringProp name="Argument.name">idRepoSecretKey</stringProp>
-            <stringProp name="Argument.value">MztmjErLZDCaifRy</stringProp>
+            <stringProp name="Argument.value">abc123</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idRepoAppId" elementType="Argument">
@@ -730,7 +735,7 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Resident Id Access Token Creation (Setup)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Resident Id Access Token Creation (Setup)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1291,7 +1296,7 @@ function encodeBase64Url(value) {
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Resident EventId (Setup)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Resident EventId (Setup)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1402,15 +1407,15 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S01 UIN Services Login (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S01 UIN Services Login (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -1469,12 +1474,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S01 UIN Services Login Weighted Switch Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="269409417">
+            <collectionProp name="1704159996">
               <stringProp name="-1908102739">S01 T01 Login​ Redirect URI Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="536485899">
+            <collectionProp name="-1579625477">
               <stringProp name="-674306641">S01 T02 UIN Login Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -2164,16 +2169,25 @@ function encodeBase64Url(value) {
             </hashTree>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>1200.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S02 View My History (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S02 View My History (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -2226,27 +2240,27 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S02 View My History Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="695189115">
+            <collectionProp name="-1963295025">
               <stringProp name="-1040620020">Service History Endpoint</stringProp>
               <stringProp name="1598">20</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1671376522">
+            <collectionProp name="-171594881">
               <stringProp name="1450769351">Grievance Ticket Endpoint</stringProp>
               <stringProp name="1598">20</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-96641472">
+            <collectionProp name="535751667">
               <stringProp name="-1832506076">Unpinned Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="616562617">
+            <collectionProp name="-1867366929">
               <stringProp name="-1572546339">Pinned Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="278432">
+            <collectionProp name="-1021661209">
               <stringProp name="227927684">Download Service History Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -2546,16 +2560,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>180.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S03 Manage My VID (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S03 Manage My VID (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -2599,9 +2622,9 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S03 Manage My VID Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-1384192797">
+            <collectionProp name="-872507055">
               <stringProp name="-1373947138">S03 T01 Generate / Revoke VID Controller</stringProp>
-              <stringProp name="48625">100</stringProp>
+              <stringProp name="1691">50</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
             <collectionProp name="232638563">
@@ -3005,16 +3028,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S04 Secure My ID (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S04 Secure My ID (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${duration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -3202,16 +3234,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S05 Track My Requests (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S05 Track My Requests (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -3232,12 +3273,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S05 Track My Requests Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="754624610">
+            <collectionProp name="1922841691">
               <stringProp name="724801478">Track Service Request Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-148359483">
+            <collectionProp name="-621971859">
               <stringProp name="589783785">Download Service Request Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -3360,16 +3401,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S06 Get Personalized Card (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S06 Get Personalized Card (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -3704,16 +3754,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S07 Share My Data (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S07 Share My Data (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -4174,16 +4233,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>300.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S08 Update My Data (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S08 Update My Data (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">15</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -4344,27 +4412,27 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S08 Update My Data Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-750339800">
+            <collectionProp name="-1367311519">
               <stringProp name="481894924">S07 T01 Update Data Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1619562576">
+            <collectionProp name="797978525">
               <stringProp name="355850900">S07 T02 Documents Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1319521786">
+            <collectionProp name="-261338041">
               <stringProp name="38845034">S07 T03 Update UIN Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1305102396">
+            <collectionProp name="1522422928">
               <stringProp name="-917563480">S07 T04 Contact Details Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="828415564">
+            <collectionProp name="407244041">
               <stringProp name="1301413936">S07 T05 Transliteration Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -5397,16 +5465,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>900.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S09 Get Information (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S09 Get Information (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -5546,12 +5623,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S09 Get Information Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-1013370964">
+            <collectionProp name="59757797">
               <stringProp name="629107088">S08 T01 Registration Center Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-1116417730">
+            <collectionProp name="-1379670437">
               <stringProp name="-90552414">S08 T02 Supporting Documents Controller</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -6265,16 +6342,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>600.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S10 Get My UIN (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S10 Get My UIN (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">15</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -6528,16 +6614,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>900.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S11 Verify Phone/Email ID (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S11 Verify Phone/Email ID (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -6736,16 +6831,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>180.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S12 Menu Bar (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S12 Menu Bar (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -6766,22 +6870,22 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S12 Menu Bar Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="954460230">
+            <collectionProp name="-70943330">
               <stringProp name="1198751914">Unread Notification Count Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="-413748214">
+            <collectionProp name="-1937771125">
               <stringProp name="1760456046">Bell Update Time Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="1364212865">
+            <collectionProp name="-1175605838">
               <stringProp name="-1915902043">Bell Notification Click Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="1046756916">
+            <collectionProp name="-148485433">
               <stringProp name="-548636136">Notifications Language Code Endpoint</stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -6992,16 +7096,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>240.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S13 Audit (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S13 Audit (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -7036,12 +7149,12 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         <com.blazemeter.jmeter.control.WeightedSwitchController guiclass="com.blazemeter.jmeter.control.WeightedSwitchControllerGui" testclass="com.blazemeter.jmeter.control.WeightedSwitchController" testname="S13 Audit Weightage Controller" enabled="true">
           <boolProp name="IsRandomChoice">true</boolProp>
           <collectionProp name="Weights">
-            <collectionProp name="-770966436">
+            <collectionProp name="-782736823">
               <stringProp name="43885120">Auth Proxy Audit Log Endpoint </stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
             </collectionProp>
-            <collectionProp name="2123676340">
+            <collectionProp name="1059989025">
               <stringProp name="1383208600">Proxy Audit Log Endpoint </stringProp>
               <stringProp name="48625">100</stringProp>
               <stringProp name="3569038">true</stringProp>
@@ -7172,16 +7285,25 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>120.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S14 Profile Icon / Logout (Execution)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="S14 Profile Icon / Logout (Execution)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampUp}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${testDuration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -7316,6 +7438,15 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>180.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -7390,96 +7521,6 @@ vars.put(&quot;utcTime&quot;, utcTime);</stringProp>
         </objProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
-      <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.SynthesisReportGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Synthesis Report (filtered)" enabled="false">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">500</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels">Endpoint</stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-      <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.SynthesisReportGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Synthesis Report (filtered)" enabled="false">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">500</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels">Endpoint</stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
       <hashTree/>
     </hashTree>
   </hashTree>
