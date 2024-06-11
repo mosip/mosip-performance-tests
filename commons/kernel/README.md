@@ -24,14 +24,18 @@ This folder contains performance test scripts and test data of Kernel module.
 * For the test execution part we have a test script [Kernel_Test_Script.jmx](https://github.com/mosip/mosip-performance-tests-mt/blob/1.2.0/commons/kernel/scripts/Kernel_Test_Script.jmx) which will take care of the execution tasks for all the kernel services.
 * In the test script we have a preparation thread group for only OTP Manager - Validate OTP api & execution thread groups for all the other API's, where in preparation group the data preparation part will happen & in the execution group the main test execution will take place.
 * The Kernel module test script consists of the following api's-
-   1. OTP Manager- Generate OTP
+   1. OTP Manager- Generate OTP 
    2. OTP Manager- Validate OTP
    3. Notification Manager- SMS
    4. Notification Manager- EMAIL
    5. IDGenerator- Generate UIN
    6. IDGenerator- Generate VID
    7. Generate RID
-   8. Generate PRID
+   8. Generate PRID 
+   9. Add Audit 
+   10. Authenticate Using Client Id - Secret Key 
+   11. Authenticate Using User Id Pwd
+   12. Validate Token
   
   ***All these scripts can be found [here](https://github.com/mosip/mosip-performance-tests-mt/tree/1.2.0/commons/kernel/scripts).***
 * All the thread groups will run in a sequential manner & if we don't want to run all of them we can disable the one which we don't want to run.

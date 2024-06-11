@@ -20,7 +20,9 @@ This folder contains performance test scripts for Preregistration module.
 
 * It consists of one thread group named 'PreReg UI (Execution)' which consists of all the transactions involved for the Preregistration UI end to end flow.
 
-* We have a test element named 'User Defined Variables' in the test script where the server IP, server port & protocol all these are parameterized & can be changed based on our requirements which will further reflect in the entire script.
+* We have a test element named 'User Defined Variables' in the test script where the server IP, server port & protocol all these are parameterized & can be changed based on our requirements which will further reflect in the entire script. 
+
+* In step "PreReg Upload Documents" we need to upload 3 types of documents available in the support files POI, POR and POE documents. Provide correct path for those documents in the HTTP request under files upload tab.
 
 * Also for viewing the results or output of our test we have added certain listener test elements at the end of our test script which are - View Results Tree, Aggregate Report, Active Threads Over Time graph, Response Times Percentiles graph, Response Times vs Threads graph & Transaction Throughput vs Threads graph.
 
