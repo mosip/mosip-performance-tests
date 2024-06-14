@@ -7,7 +7,7 @@ This folder contains performance test scripts and test data of Packet manager mo
 * Kernel authmanager service
 * Packetmanager service
 
-### Data prequisite:-
+### Data pre-requisite:-
 * Sample Reg ID's values are stored and can be updated based on the environment in the file ridPacketManager.txt.
 * Sample document names are stored and can be updated based on the requirement in the file documentNames.txt.
 * Sample field names are stored and can be updated based on the requirement in the file fieldNames.txt.
@@ -15,16 +15,18 @@ This folder contains performance test scripts and test data of Packet manager mo
 * Sample field values are stored and can be updated based on the environment in the file searchFieldsRequestBody.csv.
 * Sample tag values are stored and can be updated based on the environment in the file tags.txt.
 
+** All the above mentioned data pre-requisites files are present in the support files folder.
+
 ### How to run JMeter scripts:-
 
 * For the test execution part we have a Packet Manager Test Script which will do all the execution tasks.
 * We need to take care of the prerequisites first for which we have one thread group Auth Token Generation (Setup) for the creation of authorization token which we will further use in our execution. 
-* All the creation tasks which will happen that will automatically save the tokens created to a file in the bin folder of JMeter which will be used further by our test script for execution.
+* All the creation tasks which will happen that will automatically save the tokens created to a file in a RunTimeFiles folder which is present in bin folder of JMeter which will be used further by our test script for execution. For the RunTimeFiles folder a variable is defined in the user defined variable section where we can provide the exact path for the mentioned folder.
 * In the test script we have 11 execution thread groups for all the scenario's, where the main test execution will take place.
 * The Packetmanager module scenario's which we are considering here are - Get Documents, Validate Packet, Search Field, Search Fields, Get Biometrics, Get Audits, Get MetaInfo, Get Tags, Add Tags, Update Tags. Delete Tags and Create Packet.
 * All the thread groups will run in a parallel manner & if we don't want to run all of them we can disable the one which we don't want to run.
 * Also for viewing the results or output of our test we have added certain listener test elements at the end of our test script which are - View Results Tree, Endpoint Level Report, Scenario Level Report.
-* We have a test element named 'User Defined Variables' in Test script where the server IP, server port, protocol, clientId, secretKey, appId, testDuration, rampUp, process and source all these are parameterized & can be changed based on our requirements which will further reflect in the entire script.
+* We have a test element named 'User Defined Variables' in Test script where the server IP, server port, protocol, clientId, secretKey, appId, testDuration, rampUp, process, source and runTimeFilePath variables are present and all these are parameterized & can be changed based on our requirements which will further reflect in the entire script.
 
 
 
