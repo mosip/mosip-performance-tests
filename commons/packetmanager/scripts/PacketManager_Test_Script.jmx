@@ -69,6 +69,11 @@
             <stringProp name="Argument.value">./bin/RunTimeFiles</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="refId" elementType="Argument">
+            <stringProp name="Argument.name">refId</stringProp>
+            <stringProp name="Argument.value">10423_10401</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -325,7 +330,7 @@
   &quot;metadata&quot;: {},&#xd;
   &quot;request&quot;: {&#xd;
     &quot;bypassCache&quot;: false,&#xd;
-    &quot;id&quot;: &quot;${ridDemo1}&quot;,&#xd;
+    &quot;id&quot;: &quot;${rid}&quot;,&#xd;
     &quot;process&quot;: &quot;${process}&quot;,&#xd;
     &quot;source&quot;: &quot;${source}&quot;&#xd;
   },&#xd;
@@ -1400,7 +1405,7 @@ vars.put(&apos;addTagRandom&apos;,addPropDemo)</stringProp>
             &quot;dateOfBirth&quot;: &quot;1994/10/21&quot;&#xd;
         },&#xd;
         &quot;id&quot;: &quot;${rid}&quot;,&#xd;
-        &quot;refId&quot;: &quot;10423_10401&quot;,&#xd;
+        &quot;refId&quot;: &quot;${refId}&quot;,&#xd;
         &quot;metaInfo&quot;: {&#xd;
             &quot;creationDate&quot;: &quot;&quot;,&#xd;
             &quot;metaData&quot;: &quot;[ {\n  \&quot;label\&quot; : \&quot;registrationId\&quot;,\n  \&quot;value\&quot; : \&quot;${rid}\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;applicationId\&quot;,\n  \&quot;value\&quot; : \&quot;${rid}\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;creationDate\&quot;,\n  \&quot;value\&quot; : \&quot;20240217071259\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;Registration Client Version Number\&quot;,\n  \&quot;value\&quot; : \&quot;1.2.0.1-SNAPSHOT\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;registrationType\&quot;,\n  \&quot;value\&quot; : \&quot;NEW\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;preRegistrationId\&quot;,\n  \&quot;value\&quot; : null\n}, {\n  \&quot;label\&quot; : \&quot;machineId\&quot;,\n  \&quot;value\&quot; : \&quot;10008\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;centerId\&quot;,\n  \&quot;value\&quot; : \&quot;10014\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;dongleId\&quot;,\n  \&quot;value\&quot; : \&quot;12345\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;keyIndex\&quot;,\n  \&quot;value\&quot; : \&quot;a0:8b:23:94:1c:1e:76:a4:a0:72:55:5d:30:b6:66:31:b8:08:56:f3:3c:f1:d6:20:6a:d1:56:5a:89:f6:11:d9\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;langCodes\&quot;,\n  \&quot;value\&quot; : \&quot;eng,fra\&quot;\n}, {\n  \&quot;label\&quot; : \&quot;consentOfApplicant\&quot;,\n  \&quot;value\&quot; : null\n} ]&quot;&#xd;

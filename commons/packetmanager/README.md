@@ -26,9 +26,16 @@ This folder contains performance test scripts and test data of Packet manager mo
 * The Packetmanager module scenario's which we are considering here are - Get Documents, Validate Packet, Search Field, Search Fields, Get Biometrics, Get Audits, Get MetaInfo, Get Tags, Add Tags, Update Tags. Delete Tags and Create Packet.
 * All the thread groups will run in a parallel manner & if we don't want to run all of them we can disable the one which we don't want to run.
 * Also for viewing the results or output of our test we have added certain listener test elements at the end of our test script which are - View Results Tree, Endpoint Level Report, Scenario Level Report.
-* We have a test element named 'User Defined Variables' in Test script where the server IP, server port, protocol, clientId, secretKey, appId, testDuration, rampUp, process, source and runTimeFilePath variables are present and all these are parameterized & can be changed based on our requirements which will further reflect in the entire script.
+* We have a test element named 'User Defined Variables' in Test script where the server IP, server port, protocol, clientId, secretKey, appId, testDuration, rampUp, process, source, refId and runTimeFilePath variables are present and all these are parameterized & can be changed based on our requirements which will further reflect in the entire script.
 
 
+### Exact steps of execution
+
+	Step 1: Enable only Auth Token Generation (Setup) thread group and toggle/disable the remaining thread groups in the script to create the authorization token value.
+	Step 2: Enable the rest of all the scenario based execution thread groups and toggle/disable the first setup thread group.
+	Step 5: Make sure test duration and ramp-up is defined in the user defined variable section.
+	Step 5: Click on Run/Eexcute the test.
+	Step 6: Monitor the metrics during the test run using reports from jmeter, kibana, grafana and Jprofiler.
 
 ### Designing the workload model for performance test execution
 
@@ -64,3 +71,27 @@ This folder contains performance test scripts and test data of Packet manager mo
 		* If we are performing scalability testing we need to calculate throughput for 10 TPS as 
           Value = (10 * 60 )/(Number of users)
 		  
+		  
+### Description of the scenarios 
+
+* Get Documents (Execution): This scenario is used to get the document information of the packet.
+
+* Validate Packet (Execution): In this scenario packet data validation is done.
+
+* Search Field (Execution): This scenario is used to get specific field from packet using a rid and specific field name.
+
+* Search Fields (Execution): This scenario is used to get list of fields from packet using a rid and specific fields name. 
+
+* Get Biometrics (Execution): This scenario is used to get biometrics of packet. 
+
+* Get Audits (Execution): This scenario is used to get audit data of packet.
+
+* Get MetaInfo (Execution): This scenario is used to get metainfo from packet. 
+
+* Get Tags (Execution): This scenario is used to get information related to tags attached to a packet.
+
+* Add Tags (Execution): This scenario is used to add tags to packet. Tag data can't be repeated for a particular rid or packet.
+
+* Update & Delate Tags (Execution): In this scenario we have 3 endpoints combined in one thread group i.e. add tag, update tag and delete tag. This scenariois used to add or update tags to packet. 
+
+* Create Packet (Execution): This scenario is used to create a reg client packet using a rid.
