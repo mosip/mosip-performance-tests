@@ -20,7 +20,8 @@ This folder contains performance test scripts & test data for Registration Proce
 * Start JMeter by running the jmeter.bat file for Windows or jmeter file for Unix. 
 * Validate the scripts for one user.
 * Execute a dry run for 10 min.
-* Execute performance run with various loads in order to achieve targeted NFR's.
+* Execute performance run with various loads in order to achieve targeted NFR's. 
+* From Jmeter plugins manager install synthesis report plugin - (jmeter-plugins-synthesis:version: 2.2) for reporting purpose and also this listner is added in the scripts so we need this plugin in our jmeter or else the script might not load properly in the jmeter. 
 
 
 
