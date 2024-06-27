@@ -7,6 +7,18 @@ This folder contains performance test scripts and test data of Packet manager mo
 * Kernel authmanager service
 * Packetmanager service
 
+* Open source Tools used,
+    1. [Apache JMeter](https://jmeter.apache.org/)
+
+### How to run performance scripts using Apache JMeter tool
+* Download Apache JMeter from https://jmeter.apache.org/download_jmeter.cgi
+* Download scripts for the required module.
+* Start JMeter by running the jmeter.bat file for Windows or jmeter file for Unix. 
+* Validate the scripts for one user.
+* Execute a dry run for 10 min.
+* Execute performance run with various loads in order to achieve targeted NFR's. 
+* From Jmeter plugins manager install synthesis report plugin - (jmeter-plugins-synthesis:version: 2.2) for reporting purpose. This listner  is added in the scripts so we need this plugin in our jmeter or else the script might not load properly in the jmeter.
+
 ### Data pre-requisite:-
 * Sample Reg ID's values are stored and can be updated based on the environment in the file ridPacketManager.txt.
 * Sample document names are stored and can be updated based on the requirement in the file documentNames.txt.
